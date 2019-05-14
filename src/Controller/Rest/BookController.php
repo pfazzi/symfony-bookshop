@@ -9,7 +9,6 @@ use App\Service\Book\AddBookToCatalogRequest;
 use App\Service\Book\BookService;
 use JMS\Serializer\SerializerInterface;
 use Pfazzi\Isbn\Isbn;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,6 +17,8 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 final class BookController
 {
+    use RestControllerTrait;
+
     /** @var SerializerInterface */
     private $serializer;
 
@@ -52,36 +53,23 @@ final class BookController
     public function create(Request $request): Response
     {
         /** @var AddBookToCatalogRequest $command */
-        $command = $this->serializer->deserialize(
+        $dto = $this->serializer->deserialize(
             $request->getContent(),
             AddBookToCatalogRequest::class,
             'json'
         );
 
         /** @var ConstraintViolationListInterface $violations */
-        $violations = $this->validator->validate($command);
+        $violations = $this->validator->validate($dto);
         if ($violations->count() > 0) {
-            return new JsonResponse(
-                $this->serializer->serialize(
-                    ['errors' => $violations],
-                    'json'
-                ),
-                Response::HTTP_BAD_REQUEST,
-                [],
-                true
-            );
+            return $this->handleViolations($violations);
         }
 
-        $this->bookService->addToCatalog($command);
+        $this->bookService->addToCatalog($dto);
 
-        return new JsonResponse(
-            $this->serializer->serialize(
-                $this->bookRepository->get($command->getIsbn()),
-                'json'
-            ),
-            Response::HTTP_CREATED,
-            [],
-            true
+        return $this->handleEntity(
+            $this->bookRepository->get($dto->getIsbn()),
+            Response::HTTP_CREATED
         );
     }
 
@@ -94,14 +82,9 @@ final class BookController
      */
     public function get(string $isbn): Response
     {
-        return new JsonResponse(
-            $this->serializer->serialize(
-                $this->bookRepository->get(Isbn::fromString($isbn)),
-                'json'
-            ),
-            Response::HTTP_OK,
-            [],
-            true
+        return $this->handleEntity(
+            $this->bookRepository->get(Isbn::fromString($isbn)),
+            Response::HTTP_CREATED
         );
     }
 }
