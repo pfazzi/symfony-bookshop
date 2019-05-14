@@ -52,7 +52,7 @@ final class BookController
      */
     public function create(Request $request): Response
     {
-        /** @var AddBookToCatalogRequest $command */
+        /** @var AddBookToCatalogRequest $dto */
         $dto = $this->serializer->deserialize(
             $request->getContent(),
             AddBookToCatalogRequest::class,
