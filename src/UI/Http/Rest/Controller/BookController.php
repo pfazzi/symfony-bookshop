@@ -65,8 +65,7 @@ final class BookController
     public function get(string $isbn): Response
     {
         return $this->buildSingleResourceResponse(
-            $this->bookRepository->get(Isbn::fromString($isbn)),
-            Response::HTTP_OK
+            $this->bookRepository->get(Isbn::fromString($isbn))
         );
     }
 }
