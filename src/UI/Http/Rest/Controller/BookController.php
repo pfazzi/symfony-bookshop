@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Bookshop\UI\Http\Rest\Controller;
 
-use Bookshop\Application\Book\AddBookToCatalogRequest;
+use Bookshop\Application\Book\AddBookToCatalogDTO;
 use Bookshop\Application\Book\BookService;
 use Bookshop\Domain\Book\BookRepositoryInterface;
 use JMS\Serializer\SerializerInterface;
@@ -52,10 +52,10 @@ final class BookController
      */
     public function create(Request $request): Response
     {
-        /** @var AddBookToCatalogRequest $dto */
+        /** @var AddBookToCatalogDTO $dto */
         $dto = $this->serializer->deserialize(
             $request->getContent(),
-            AddBookToCatalogRequest::class,
+            AddBookToCatalogDTO::class,
             'json'
         );
 

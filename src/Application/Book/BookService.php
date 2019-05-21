@@ -29,13 +29,13 @@ final class BookService
         $this->authorRepository = $authorRepository;
     }
 
-    public function addToCatalog(AddBookToCatalogRequest $command): void
+    public function addToCatalog(AddBookToCatalogDTO $dto): void
     {
         $book = $this->factory->create(
-            $command->getIsbn(),
-            $command->getTitle(),
-            $this->authorRepository->get($command->getAuthorId()),
-            $command->getPrice()
+            $dto->getIsbn(),
+            $dto->getTitle(),
+            $this->authorRepository->get($dto->getAuthorId()),
+            $dto->getPrice()
         );
 
         $this->bookRepository->store($book);
