@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Model\Book;
+namespace Bookshop\Domain\Author;
 
 use Assert\Assertion;
 use Doctrine\ORM\Mapping as ORM;
@@ -10,10 +10,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Embeddable()
  */
-final class Title
+final class Name
 {
     /**
-     * @ORM\Column(length=200, name="title")
+     * @ORM\Column(length=30, name="name")
      *
      * @var string
      */
@@ -21,7 +21,7 @@ final class Title
 
     private function __construct($value)
     {
-        Assertion::maxLength($value, 200);
+        Assertion::length($value, 30);
 
         $this->value = $value;
     }

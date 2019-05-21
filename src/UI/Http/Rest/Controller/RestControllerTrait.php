@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller\Rest;
+namespace Bookshop\UI\Http\Rest\Controller;
 
 use JMS\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;

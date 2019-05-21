@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Controller\Rest;
+namespace Bookshop\UI\Http\Rest\Controller;
 
-use App\Model\Book\BookRepositoryInterface;
-use App\Service\Book\AddBookToCatalogRequest;
-use App\Service\Book\BookService;
+use Bookshop\Application\Book\AddBookToCatalogRequest;
+use Bookshop\Application\Book\BookService;
+use Bookshop\Domain\Book\BookRepositoryInterface;
 use JMS\Serializer\SerializerInterface;
 use Pfazzi\Isbn\Isbn;
 use Symfony\Component\HttpFoundation\Request;

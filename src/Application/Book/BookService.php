@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Service\Book;
+namespace Bookshop\Application\Book;
 
-use App\Model\Author\AuthorRepositoryInterface;
-use App\Model\Book\BookFactory;
-use App\Model\Book\BookRepositoryInterface;
+use Bookshop\Domain\Author\AuthorRepositoryInterface;
+use Bookshop\Domain\Book\BookFactory;
+use Bookshop\Domain\Book\BookRepositoryInterface;
 
 final class BookService
 {

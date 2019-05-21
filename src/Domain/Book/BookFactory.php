@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Model\Book;
+namespace Bookshop\Domain\Book;
 
-use App\Model\Author\Author;
+use Bookshop\Domain\Author\Author;
 use Pfazzi\Isbn\Isbn;
 
 final class BookFactory

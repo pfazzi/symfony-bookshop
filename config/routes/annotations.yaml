@@ -1,4 +1,4 @@
 rest_controllers:
-    resource: ../../src/Controller/Rest
+    resource: ../../src/UI/Http/Rest/Controller/*
     type: annotation
     prefix: /api

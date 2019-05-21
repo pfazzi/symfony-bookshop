@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Bookshop\Infrastructure\Symfony;
 
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
@@ -15,6 +15,11 @@ class Kernel extends BaseKernel
 
     private const CONFIG_EXTS = '.{php,xml,yaml,yml}';
 
+    /**
+     * @psalm-suppress UnresolvableInclude
+     *
+     * @return iterable
+     */
     public function registerBundles(): iterable
     {
         $contents = require $this->getProjectDir().'/config/bundles.php';
@@ -27,7 +32,7 @@ class Kernel extends BaseKernel
 
     public function getProjectDir(): string
     {
-        return \dirname(__DIR__);
+        return \dirname(__DIR__.'/../../../../');
     }
 
     protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void

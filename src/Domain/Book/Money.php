@@ -2,12 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Model\Book;
+namespace Bookshop\Domain\Book;
 
 use Assert\Assertion;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as Serializer;
-use Pfazzi\Isbn\Doctrine\IsbnType;
 
 /**
  * @ORM\Embeddable()
@@ -25,7 +24,7 @@ final class Money
     /**
      * @ORM\Column(length=3)
      *
-     * @var float
+     * @var string
      */
     private $currency;
 

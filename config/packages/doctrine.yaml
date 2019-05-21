@@ -25,6 +25,6 @@ doctrine:
             App:
                 is_bundle: false
                 type: annotation
-                dir: '%kernel.project_dir%/src/Model'
-                prefix: 'App\Model'
-                alias: App
+                dir: '%kernel.project_dir%/src/Domain'
+                prefix: 'Bookshop\Domain'
+                alias: BookshopDomain

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Model\Book;
+namespace Bookshop\Domain\Book;
 
 use Pfazzi\Isbn\Isbn;
 

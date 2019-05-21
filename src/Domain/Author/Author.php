@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Model\Author;
+namespace Bookshop\Domain\Author;
 
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as Serializer;
@@ -23,7 +23,7 @@ class Author
     private $id;
 
     /**
-     * @ORM\Embedded(class="App\Model\Author\Name", columnPrefix=false)
+     * @ORM\Embedded(class="Bookshop\Domain\Author\Name", columnPrefix=false)
      * @Serializer\Type("string")
      *
      * @var Name

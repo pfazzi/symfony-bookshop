@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Service\Book;
+namespace Bookshop\Application\Book;
 
-use App\Model\Book\Money;
-use App\Model\Book\Title;
+use Bookshop\Domain\Book\Money;
+use Bookshop\Domain\Book\Title;
 use JMS\Serializer\Annotation as Serializer;
 use Pfazzi\Isbn\Isbn;
 use Ramsey\Uuid\Uuid;

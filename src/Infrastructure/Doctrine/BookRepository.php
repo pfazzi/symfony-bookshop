@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Repository;
+namespace Bookshop\Infrastructure\Doctrine;
 
-use App\Model\Book\Book;
-use App\Model\Book\BookCatalogInterface;
-use App\Model\Book\BookRepositoryInterface;
+use Bookshop\Domain\Book\Book;
+use Bookshop\Domain\Book\BookCatalogInterface;
+use Bookshop\Domain\Book\BookRepositoryInterface;
 use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Pfazzi\Isbn\Isbn;

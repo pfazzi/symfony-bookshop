@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Repository;
+namespace Bookshop\Infrastructure\Doctrine;
 
-use App\Model\Author\Author;
-use App\Model\Author\AuthorRepositoryInterface;
+use Bookshop\Domain\Author\Author;
+use Bookshop\Domain\Author\AuthorRepositoryInterface;
 use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Ramsey\Uuid\UuidInterface;

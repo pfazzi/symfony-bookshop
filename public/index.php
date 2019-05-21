@@ -1,6 +1,6 @@
 <?php
 
-use App\Kernel;
+use Bookshop\Infrastructure\Symfony\Kernel;
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;
 

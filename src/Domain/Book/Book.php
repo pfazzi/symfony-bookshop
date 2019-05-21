@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Model\Book;
+namespace Bookshop\Domain\Book;
 
-use App\Model\Author\Author;
+use Bookshop\Domain\Author\Author;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as Serializer;
 use Pfazzi\Isbn\Isbn;
@@ -24,7 +24,7 @@ final class Book
     private $isbn;
 
     /**
-     * @ORM\Embedded(class="App\Model\Book\Title", columnPrefix=false)
+     * @ORM\Embedded(class="Bookshop\Domain\Book\Title", columnPrefix=false)
      * @Serializer\Type("string")
      *
      * @var Title
@@ -32,14 +32,14 @@ final class Book
     private $title;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Model\Author\Author")
+     * @ORM\ManyToOne(targetEntity="Bookshop\Domain\Author\Author")
      *
      * @var Author
      */
     private $author;
 
     /**
-     * @ORM\Embedded(class="App\Model\Book\Money")
+     * @ORM\Embedded(class="Bookshop\Domain\Book\Money")
      *
      * @var Money
      */

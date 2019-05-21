@@ -1,8 +1,8 @@
 <?php
+
 declare(strict_types=1);
 
-namespace App\Model\Author;
-
+namespace Bookshop\Domain\Author;
 
 use Ramsey\Uuid\UuidInterface;
 
