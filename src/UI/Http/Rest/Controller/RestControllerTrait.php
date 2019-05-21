@@ -9,11 +9,15 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 trait RestControllerTrait
 {
     /** @var SerializerInterface */
     private $serializer;
+
+    /** @var ValidatorInterface */
+    private $validator;
 
     /**
      * @param Request $request
@@ -39,6 +43,35 @@ trait RestControllerTrait
             $type,
             'json'
         );
+    }
+
+    private function validate(object $dto): ConstraintViolationListInterface
+    {
+        return $this->validator->validate($dto);
+    }
+
+    /**
+     * @param Request $request
+     * @param string  $type
+     *
+     * @template T
+     * @psalm-param class-string<T> $type
+     *
+     * @return array
+     *
+     * @throws \Exception
+     */
+    private function deserializeAndValidateDto(Request $request, string $type): array
+    {
+        $violations = $this->validate(
+            /* @var T $dto */
+            $dto = $this->deserializeRequest($request, $type)
+        );
+
+        return [
+            'dto' => $dto,
+            'violations' => $violations,
+        ];
     }
 
     private function buildBadRequestResponse(ConstraintViolationListInterface $violations): Response

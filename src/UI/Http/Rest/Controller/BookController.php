@@ -18,12 +18,6 @@ final class BookController
 {
     use RestControllerTrait;
 
-    /** @var SerializerInterface */
-    private $serializer;
-
-    /** @var ValidatorInterface */
-    private $validator;
-
     /** @var BookService */
     private $bookService;
 
@@ -53,17 +47,16 @@ final class BookController
      */
     public function create(Request $request): Response
     {
-        $violations = $this->validator->validate(
-            $dto = $this->deserializeRequest($request, AddBookToCatalogDTO::class)
+        ['dto' => $dto, 'violations' => $violations] = $this->deserializeAndValidateDto(
+            $request,
+            AddBookToCatalogDTO::class
         );
         if ($violations->count() > 0) {
             return $this->buildBadRequestResponse($violations);
         }
 
-        $this->bookService->addToCatalog($dto);
-
         return $this->buildSingleResourceResponse(
-            $this->bookRepository->get($dto->getIsbn()),
+            $this->bookService->addToCatalog($dto),
             Response::HTTP_CREATED
         );
     }

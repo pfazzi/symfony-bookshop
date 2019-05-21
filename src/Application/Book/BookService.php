@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Bookshop\Application\Book;
 
 use Bookshop\Domain\Author\AuthorRepositoryInterface;
+use Bookshop\Domain\Book\Book;
 use Bookshop\Domain\Book\BookFactory;
 use Bookshop\Domain\Book\BookRepositoryInterface;
 
@@ -29,7 +30,7 @@ final class BookService
         $this->authorRepository = $authorRepository;
     }
 
-    public function addToCatalog(AddBookToCatalogDTO $dto): void
+    public function addToCatalog(AddBookToCatalogDTO $dto): Book
     {
         $book = $this->factory->create(
             $dto->getIsbn(),
@@ -39,5 +40,7 @@ final class BookService
         );
 
         $this->bookRepository->store($book);
+
+        return $book;
     }
 }
