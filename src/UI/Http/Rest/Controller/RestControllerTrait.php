@@ -14,7 +14,7 @@ trait RestControllerTrait
     /** @var SerializerInterface */
     private $serializer;
 
-    private function handleViolations(ConstraintViolationListInterface $violations): Response
+    private function buildBadRequestResponse(ConstraintViolationListInterface $violations): Response
     {
         return new JsonResponse(
             $this->serializer->serialize(

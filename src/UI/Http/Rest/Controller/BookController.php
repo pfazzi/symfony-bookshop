@@ -62,7 +62,7 @@ final class BookController
         /** @var ConstraintViolationListInterface $violations */
         $violations = $this->validator->validate($dto);
         if ($violations->count() > 0) {
-            return $this->handleViolations($violations);
+            return $this->buildBadRequestResponse($violations);
         }
 
         $this->bookService->addToCatalog($dto);
