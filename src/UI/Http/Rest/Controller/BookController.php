@@ -67,7 +67,7 @@ final class BookController
 
         $this->bookService->addToCatalog($dto);
 
-        return $this->handleEntity(
+        return $this->buildSingleResourceResponse(
             $this->bookRepository->get($dto->getIsbn()),
             Response::HTTP_CREATED
         );
@@ -82,9 +82,9 @@ final class BookController
      */
     public function get(string $isbn): Response
     {
-        return $this->handleEntity(
+        return $this->buildSingleResourceResponse(
             $this->bookRepository->get(Isbn::fromString($isbn)),
-            Response::HTTP_CREATED
+            Response::HTTP_OK
         );
     }
 }

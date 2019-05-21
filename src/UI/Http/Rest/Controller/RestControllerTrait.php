@@ -27,7 +27,7 @@ trait RestControllerTrait
         );
     }
 
-    private function handleEntity(object $object, $status = Response::HTTP_CREATED): Response
+    private function buildSingleResourceResponse(object $object, $status = Response::HTTP_CREATED): Response
     {
         return new JsonResponse(
             $this->serializer->serialize($object, 'json'),
