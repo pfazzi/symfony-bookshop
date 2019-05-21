@@ -12,7 +12,6 @@ use Pfazzi\Isbn\Isbn;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Validator\ConstraintViolationListInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 final class BookController
@@ -49,18 +48,14 @@ final class BookController
      * @param Request $request
      *
      * @return Response
+     *
+     * @throws \Exception
      */
     public function create(Request $request): Response
     {
-        /** @var AddBookToCatalogDTO $dto */
-        $dto = $this->serializer->deserialize(
-            $request->getContent(),
-            AddBookToCatalogDTO::class,
-            'json'
+        $violations = $this->validator->validate(
+            $dto = $this->deserializeRequest($request, AddBookToCatalogDTO::class)
         );
-
-        /** @var ConstraintViolationListInterface $violations */
-        $violations = $this->validator->validate($dto);
         if ($violations->count() > 0) {
             return $this->buildBadRequestResponse($violations);
         }
