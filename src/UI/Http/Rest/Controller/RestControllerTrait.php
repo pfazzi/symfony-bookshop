@@ -20,6 +20,40 @@ trait RestControllerTrait
     private $validator;
 
     /**
+     * @param Request  $request
+     * @param string   $dtoType
+     * @param callable $action
+     * @param int      $successfulState
+     *
+     * @template T
+     * @psalm-param class-string<T> $dtoType
+     *
+     * @return Response
+     *
+     * @throws \Exception
+     */
+    private function handleRequest(
+        Request $request,
+        string $dtoType,
+        callable $action,
+        int $successfulState = Response::HTTP_OK
+    ): Response {
+        [
+            'dto' => $dto,
+            'violations' => $violations
+        ] = $this->deserializeAndValidateDto($request, $dtoType);
+
+        if ($violations->count() > 0) {
+            return $this->buildBadRequestResponse($violations);
+        }
+
+        return $this->buildSingleResourceResponse(
+            call_user_func($action, $dto),
+            $successfulState
+        );
+    }
+
+    /**
      * @param Request $request
      * @param string  $type
      *

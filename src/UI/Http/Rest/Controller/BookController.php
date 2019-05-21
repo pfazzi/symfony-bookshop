@@ -47,16 +47,10 @@ final class BookController
      */
     public function create(Request $request): Response
     {
-        ['dto' => $dto, 'violations' => $violations] = $this->deserializeAndValidateDto(
+        return $this->handleRequest(
             $request,
-            AddBookToCatalogDTO::class
-        );
-        if ($violations->count() > 0) {
-            return $this->buildBadRequestResponse($violations);
-        }
-
-        return $this->buildSingleResourceResponse(
-            $this->bookService->addToCatalog($dto),
+            AddBookToCatalogDTO::class,
+            [$this->bookService, 'addToCatalog'],
             Response::HTTP_CREATED
         );
     }
