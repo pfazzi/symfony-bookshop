@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c58bcfa84fe43dbbb502ba7ad5a93c2e",
+    "content-hash": "50393d150fc590484d780c3c3d530f1c",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -5542,6 +5542,237 @@
             "time": "2018-12-27T18:08:06+00:00"
         },
         {
+            "name": "behat/mink",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/minkphp/Mink.git",
+                "reference": "6d637f7af4816c26ad8a943da2e3f7eef1231bea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/minkphp/Mink/zipball/6d637f7af4816c26ad8a943da2e3f7eef1231bea",
+                "reference": "6d637f7af4816c26ad8a943da2e3f7eef1231bea",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.1",
+                "symfony/css-selector": "^2.7|^3.0|^4.0"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^3.3|^4.0"
+            },
+            "suggest": {
+                "behat/mink-browserkit-driver": "extremely fast headless driver for Symfony\\Kernel-based apps (Sf2, Silex)",
+                "behat/mink-goutte-driver": "fast headless driver for any app without JS emulation",
+                "behat/mink-selenium2-driver": "slow, but JS-enabled driver for any app (requires Selenium2)",
+                "behat/mink-zombie-driver": "fast and JS-enabled headless driver for any app (requires node.js)",
+                "dmore/chrome-mink-driver": "fast and JS-enabled driver for any app (requires chromium or google chrome)"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.7.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Behat\\Mink\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Konstantin Kudryashov",
+                    "email": "ever.zet@gmail.com",
+                    "homepage": "http://everzet.com"
+                }
+            ],
+            "description": "Browser controller/emulator abstraction for PHP",
+            "homepage": "http://mink.behat.org/",
+            "keywords": [
+                "browser",
+                "testing",
+                "web"
+            ],
+            "time": "2019-05-14T09:56:49+00:00"
+        },
+        {
+            "name": "behat/mink-browserkit-driver",
+            "version": "1.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/minkphp/MinkBrowserKitDriver.git",
+                "reference": "1b9a7ce903cfdaaec5fb32bfdbb26118343662eb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/minkphp/MinkBrowserKitDriver/zipball/1b9a7ce903cfdaaec5fb32bfdbb26118343662eb",
+                "reference": "1b9a7ce903cfdaaec5fb32bfdbb26118343662eb",
+                "shasum": ""
+            },
+            "require": {
+                "behat/mink": "^1.7.1@dev",
+                "php": ">=5.3.6",
+                "symfony/browser-kit": "~2.3|~3.0|~4.0",
+                "symfony/dom-crawler": "~2.3|~3.0|~4.0"
+            },
+            "require-dev": {
+                "mink/driver-testsuite": "dev-master",
+                "symfony/http-kernel": "~2.3|~3.0|~4.0"
+            },
+            "type": "mink-driver",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Behat\\Mink\\Driver\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Konstantin Kudryashov",
+                    "email": "ever.zet@gmail.com",
+                    "homepage": "http://everzet.com"
+                }
+            ],
+            "description": "Symfony2 BrowserKit driver for Mink framework",
+            "homepage": "http://mink.behat.org/",
+            "keywords": [
+                "Mink",
+                "Symfony2",
+                "browser",
+                "testing"
+            ],
+            "time": "2018-05-02T09:25:31+00:00"
+        },
+        {
+            "name": "behat/mink-extension",
+            "version": "2.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Behat/MinkExtension.git",
+                "reference": "80f7849ba53867181b7e412df9210e12fba50177"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Behat/MinkExtension/zipball/80f7849ba53867181b7e412df9210e12fba50177",
+                "reference": "80f7849ba53867181b7e412df9210e12fba50177",
+                "shasum": ""
+            },
+            "require": {
+                "behat/behat": "^3.0.5",
+                "behat/mink": "^1.5",
+                "php": ">=5.3.2",
+                "symfony/config": "^2.7|^3.0|^4.0"
+            },
+            "require-dev": {
+                "behat/mink-goutte-driver": "^1.1",
+                "phpspec/phpspec": "^2.0"
+            },
+            "type": "behat-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Behat\\MinkExtension": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Coevoet",
+                    "email": "stof@notk.org"
+                },
+                {
+                    "name": "Konstantin Kudryashov",
+                    "email": "ever.zet@gmail.com"
+                }
+            ],
+            "description": "Mink extension for Behat",
+            "homepage": "http://extensions.behat.org/mink",
+            "keywords": [
+                "browser",
+                "gui",
+                "test",
+                "web"
+            ],
+            "time": "2018-02-06T15:36:30+00:00"
+        },
+        {
+            "name": "behatch/contexts",
+            "version": "3.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Behatch/contexts.git",
+                "reference": "cbda31e1f83423f267ebb56d0d45e849ecac6dc2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Behatch/contexts/zipball/cbda31e1f83423f267ebb56d0d45e849ecac6dc2",
+                "reference": "cbda31e1f83423f267ebb56d0d45e849ecac6dc2",
+                "shasum": ""
+            },
+            "require": {
+                "behat/behat": "^3.0.13",
+                "behat/mink-extension": "^2.3.1",
+                "justinrainbow/json-schema": "^5.0",
+                "php": ">=5.5",
+                "symfony/dom-crawler": "^2.4|^3.0|^4.0",
+                "symfony/http-foundation": "^2.3|^3.0|^4.0",
+                "symfony/property-access": "^2.3|^3.0|^4.0"
+            },
+            "replace": {
+                "sanpi/behatch-contexts": "self.version"
+            },
+            "require-dev": {
+                "atoum/atoum": "^2.8|^3.0",
+                "behat/mink-goutte-driver": "^1.1",
+                "behat/mink-selenium2-driver": "^1.3",
+                "fabpot/goutte": "^3.2",
+                "guzzlehttp/guzzle": "^6.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Behatch\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "beerware"
+            ],
+            "description": "Behatch contexts",
+            "keywords": [
+                "BDD",
+                "Behat",
+                "Context",
+                "Symfony2"
+            ],
+            "time": "2018-08-13T16:31:50+00:00"
+        },
+        {
             "name": "composer/semver",
             "version": "1.5.0",
             "source": {
@@ -5827,6 +6058,72 @@
             ],
             "description": "A tool to automatically fix PHP code style",
             "time": "2019-05-06T07:13:51+00:00"
+        },
+        {
+            "name": "justinrainbow/json-schema",
+            "version": "5.2.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/justinrainbow/json-schema.git",
+                "reference": "dcb6e1006bb5fd1e392b4daa68932880f37550d4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/dcb6e1006bb5fd1e392b4daa68932880f37550d4",
+                "reference": "dcb6e1006bb5fd1e392b4daa68932880f37550d4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "~2.2.20",
+                "json-schema/json-schema-test-suite": "1.2.0",
+                "phpunit/phpunit": "^4.8.35"
+            },
+            "bin": [
+                "bin/validate-json"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JsonSchema\\": "src/JsonSchema/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bruno Prieto Reis",
+                    "email": "bruno.p.reis@gmail.com"
+                },
+                {
+                    "name": "Justin Rainbow",
+                    "email": "justin.rainbow@gmail.com"
+                },
+                {
+                    "name": "Igor Wiedler",
+                    "email": "igor@wiedler.ch"
+                },
+                {
+                    "name": "Robert Schönthal",
+                    "email": "seroscho@googlemail.com"
+                }
+            ],
+            "description": "A library to validate a json schema.",
+            "homepage": "https://github.com/justinrainbow/json-schema",
+            "keywords": [
+                "json",
+                "schema"
+            ],
+            "time": "2019-01-14T23:55:14+00:00"
         },
         {
             "name": "netresearch/jsonmapper",
@@ -6230,6 +6527,231 @@
             "time": "2019-02-04T06:01:07+00:00"
         },
         {
+            "name": "symfony/browser-kit",
+            "version": "v4.2.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/browser-kit.git",
+                "reference": "c09c18cca96d7067152f78956faf55346c338283"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/browser-kit/zipball/c09c18cca96d7067152f78956faf55346c338283",
+                "reference": "c09c18cca96d7067152f78956faf55346c338283",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "symfony/dom-crawler": "~3.4|~4.0"
+            },
+            "require-dev": {
+                "symfony/css-selector": "~3.4|~4.0",
+                "symfony/process": "~3.4|~4.0"
+            },
+            "suggest": {
+                "symfony/process": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\BrowserKit\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony BrowserKit Component",
+            "homepage": "https://symfony.com",
+            "time": "2019-04-07T09:56:43+00:00"
+        },
+        {
+            "name": "symfony/css-selector",
+            "version": "v4.2.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/css-selector.git",
+                "reference": "48eddf66950fa57996e1be4a55916d65c10c604a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/48eddf66950fa57996e1be4a55916d65c10c604a",
+                "reference": "48eddf66950fa57996e1be4a55916d65c10c604a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\CssSelector\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jean-François Simon",
+                    "email": "jeanfrancois.simon@sensiolabs.com"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony CssSelector Component",
+            "homepage": "https://symfony.com",
+            "time": "2019-01-16T20:31:39+00:00"
+        },
+        {
+            "name": "symfony/dom-crawler",
+            "version": "v4.2.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/dom-crawler.git",
+                "reference": "53c97769814c80a84a8403efcf3ae7ae966d53bb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/53c97769814c80a84a8403efcf3ae7ae966d53bb",
+                "reference": "53c97769814c80a84a8403efcf3ae7ae966d53bb",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "symfony/polyfill-ctype": "~1.8",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "require-dev": {
+                "symfony/css-selector": "~3.4|~4.0"
+            },
+            "suggest": {
+                "symfony/css-selector": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\DomCrawler\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony DomCrawler Component",
+            "homepage": "https://symfony.com",
+            "time": "2019-02-23T15:17:42+00:00"
+        },
+        {
+            "name": "symfony/inflector",
+            "version": "v4.2.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/inflector.git",
+                "reference": "275e54941a4f17a471c68d2a00e2513fc1fd4a78"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/inflector/zipball/275e54941a4f17a471c68d2a00e2513fc1fd4a78",
+                "reference": "275e54941a4f17a471c68d2a00e2513fc1fd4a78",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "symfony/polyfill-ctype": "~1.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Inflector\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernhard Schussek",
+                    "email": "bschussek@gmail.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Inflector Component",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "inflection",
+                "pluralize",
+                "singularize",
+                "string",
+                "symfony",
+                "words"
+            ],
+            "time": "2019-01-16T20:31:39+00:00"
+        },
+        {
             "name": "symfony/options-resolver",
             "version": "v4.2.8",
             "source": {
@@ -6386,6 +6908,73 @@
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
             "time": "2019-04-10T16:20:36+00:00"
+        },
+        {
+            "name": "symfony/property-access",
+            "version": "v4.2.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/property-access.git",
+                "reference": "5440dd2b5373073beee051bd978b58a0f543b192"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/property-access/zipball/5440dd2b5373073beee051bd978b58a0f543b192",
+                "reference": "5440dd2b5373073beee051bd978b58a0f543b192",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "symfony/inflector": "~3.4|~4.0"
+            },
+            "require-dev": {
+                "symfony/cache": "~3.4|~4.0"
+            },
+            "suggest": {
+                "psr/cache-implementation": "To cache access methods."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\PropertyAccess\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony PropertyAccess Component",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "access",
+                "array",
+                "extraction",
+                "index",
+                "injection",
+                "object",
+                "property",
+                "property path",
+                "reflection"
+            ],
+            "time": "2019-03-04T09:16:25+00:00"
         },
         {
             "name": "symfony/web-server-bundle",
