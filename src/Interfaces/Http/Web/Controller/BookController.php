@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bookshop\UI\Http\Web\Controller;
+namespace Bookshop\Interfaces\Http\Web\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

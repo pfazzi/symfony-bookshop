@@ -30,7 +30,7 @@ final class BookService
         $this->authorRepository = $authorRepository;
     }
 
-    public function addToCatalog(AddBookToCatalogDTO $dto): Book
+    public function handleNewBook(NewBook $dto): Book
     {
         $book = $this->factory->create(
             $dto->getIsbn(),

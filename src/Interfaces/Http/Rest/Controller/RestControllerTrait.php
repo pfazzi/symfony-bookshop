@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Bookshop\UI\Http\Rest\Controller;
+namespace Bookshop\Interfaces\Http\Rest\Controller;
 
 use JMS\Serializer\SerializerInterface;
+use League\Tactician\CommandBus;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,36 +20,29 @@ trait RestControllerTrait
     /** @var ValidatorInterface */
     private $validator;
 
+    /** @var CommandBus */
+    private $commandBus;
+
     /**
-     * @param Request  $request
-     * @param string   $dtoType
-     * @param callable $action
-     * @param int      $successfulState
-     *
-     * @template T
-     * @psalm-param class-string<T> $dtoType
+     * @param Request $request
+     * @param string  $commandType
+     * @param int     $successfulState
      *
      * @return Response
      *
      * @throws \Exception
+     * @template T
+     * @psalm-param class-string<T> $commandType
      */
-    private function handleRequest(
+    private function handleCommandRequest(
         Request $request,
-        string $dtoType,
-        callable $action,
+        string $commandType,
         int $successfulState = Response::HTTP_OK
     ): Response {
-        [
-            'dto' => $dto,
-            'violations' => $violations
-        ] = $this->deserializeAndValidateDto($request, $dtoType);
-
-        if ($violations->count() > 0) {
-            return $this->buildBadRequestResponse($violations);
-        }
-
-        return $this->buildSingleResourceResponse(
-            call_user_func($action, $dto),
+        return $this->buildResponse(
+            $this->commandBus->handle(
+                $this->deserializeRequest($request, $commandType)
+            ),
             $successfulState
         );
     }
@@ -121,7 +115,7 @@ trait RestControllerTrait
         );
     }
 
-    private function buildSingleResourceResponse(object $object, $status = Response::HTTP_OK): Response
+    private function buildResponse(object $object, $status = Response::HTTP_OK): Response
     {
         return new JsonResponse(
             $this->serializer->serialize($object, 'json'),

@@ -11,6 +11,8 @@
         "doctrine/annotations": "^1.6",
         "friendsofsymfony/rest-bundle": "^2.5",
         "jms/serializer-bundle": "^3.3",
+        "league/tactician-bundle": "^1.1",
+        "league/tactician-doctrine": "^1.1",
         "pfazzi/isbn": "^0.1.2",
         "pfazzi/isbn-doctrine": "master",
         "ramsey/uuid": "^3.8",

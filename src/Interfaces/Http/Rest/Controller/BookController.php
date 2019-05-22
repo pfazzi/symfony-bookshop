@@ -2,24 +2,28 @@
 
 declare(strict_types=1);
 
-namespace Bookshop\UI\Http\Rest\Controller;
+namespace Bookshop\Interfaces\Http\Rest\Controller;
 
-use Bookshop\Application\Book\AddBookToCatalogDTO;
+use Bookshop\Application\Book\NewBook;
 use Bookshop\Application\Book\BookService;
 use Bookshop\Domain\Book\BookRepositoryInterface;
+use Doctrine\Common\Annotations\Annotation\IgnoreAnnotation;
 use JMS\Serializer\SerializerInterface;
+use League\Tactician\CommandBus;
 use Pfazzi\Isbn\Isbn;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
+/**
+ * Class BookController.
+ *
+ * @IgnoreAnnotation("template")
+ */
 final class BookController
 {
     use RestControllerTrait;
-
-    /** @var BookService */
-    private $bookService;
 
     /** @var BookRepositoryInterface */
     private $bookRepository;
@@ -27,13 +31,13 @@ final class BookController
     public function __construct(
         SerializerInterface $serializer,
         ValidatorInterface $validator,
-        BookService $bookService,
+        CommandBus $commandBus,
         BookRepositoryInterface $bookRepository
     ) {
-        $this->bookService = $bookService;
         $this->serializer = $serializer;
         $this->validator = $validator;
         $this->bookRepository = $bookRepository;
+        $this->commandBus = $commandBus;
     }
 
     /**
@@ -47,10 +51,9 @@ final class BookController
      */
     public function create(Request $request): Response
     {
-        return $this->handleRequest(
+        return $this->handleCommandRequest(
             $request,
-            AddBookToCatalogDTO::class,
-            [$this->bookService, 'addToCatalog'],
+            NewBook::class,
             Response::HTTP_CREATED
         );
     }
@@ -64,7 +67,7 @@ final class BookController
      */
     public function get(string $isbn): Response
     {
-        return $this->buildSingleResourceResponse(
+        return $this->buildResponse(
             $this->bookRepository->get(Isbn::fromString($isbn))
         );
     }

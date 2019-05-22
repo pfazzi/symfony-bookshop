@@ -1,0 +1,5 @@
+League\Tactician\Bundle\Middleware\InvalidCommandException:
+  exclusion_policy: ALL
+  properties:
+    violations:
+      expose: true

@@ -12,7 +12,7 @@ use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
-final class AddBookToCatalogDTO
+final class NewBook
 {
     /**
      * @Assert\NotBlank()

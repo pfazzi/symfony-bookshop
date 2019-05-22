@@ -19,13 +19,16 @@ services:
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
-    Bookshop\UI\Http\Web\Controller\:
-        resource: '../src/UI/Http/Web/Controller/*'
+    Bookshop\Interfaces\Http\Web\Controller\:
+        resource: '../src/Interfaces/Http/Web/Controller/*'
         tags: ['controller.service_arguments']
 
-    Bookshop\UI\Http\Rest\Controller\:
-        resource: '../src/UI/Http/Rest/Controller/*'
+    Bookshop\Interfaces\Http\Rest\Controller\:
+        resource: '../src/Interfaces/Http/Rest/Controller/*'
         tags: ['controller.service_arguments']
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
+
+    Bookshop\Application\:
+        resource: '../src/Application/**/*Service.php'
+        tags:
+            - { name: tactician.handler, typehints: true }
