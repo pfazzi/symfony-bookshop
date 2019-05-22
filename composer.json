@@ -8,6 +8,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "beberlei/assert": "^3.2",
+        "behat/symfony2-extension": "^2.1",
         "doctrine/annotations": "^1.6",
         "friendsofsymfony/rest-bundle": "^2.5",
         "jms/serializer-bundle": "^3.3",
@@ -26,6 +27,7 @@
         "symfony/yaml": "4.2.*"
     },
     "require-dev": {
+        "behat/behat": "^3.5",
         "friendsofphp/php-cs-fixer": "^2.15",
         "symfony/web-server-bundle": "4.2.*",
         "vimeo/psalm": "^3.3"
