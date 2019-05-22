@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace Bookshop\Interfaces\Http\Rest\Controller;
 
-use Bookshop\Application\Book\NewBook;
-use Bookshop\Application\Book\BookService;
+use Bookshop\Application\Book\NewBookCommand;
 use Bookshop\Domain\Book\BookRepositoryInterface;
 use Doctrine\Common\Annotations\Annotation\IgnoreAnnotation;
 use JMS\Serializer\SerializerInterface;
@@ -53,7 +52,7 @@ final class BookController
     {
         return $this->handleCommandRequest(
             $request,
-            NewBook::class,
+            NewBookCommand::class,
             Response::HTTP_CREATED
         );
     }

@@ -30,13 +30,13 @@ final class BookService
         $this->authorRepository = $authorRepository;
     }
 
-    public function handleNewBook(NewBook $dto): Book
+    public function handleNewBook(NewBookCommand $command): Book
     {
         $book = $this->factory->create(
-            $dto->getIsbn(),
-            $dto->getTitle(),
-            $this->authorRepository->get($dto->getAuthorId()),
-            $dto->getPrice()
+            $command->getIsbn(),
+            $command->getTitle(),
+            $this->authorRepository->get($command->getAuthorId()),
+            $command->getPrice()
         );
 
         $this->bookRepository->store($book);

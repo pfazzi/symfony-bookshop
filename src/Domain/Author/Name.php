@@ -21,7 +21,7 @@ final class Name
 
     private function __construct($value)
     {
-        Assertion::length($value, 30);
+        Assertion::maxLength($value, 30);
 
         $this->value = $value;
     }
@@ -34,5 +34,10 @@ final class Name
     public function __toString()
     {
         return $this->value;
+    }
+
+    public function toString(): string
+    {
+        return (string) $this;
     }
 }
