@@ -36,7 +36,8 @@
         "symfony/phpunit-bridge": "4.2.*",
         "symfony/test-pack": "^1.0",
         "symfony/web-server-bundle": "4.2.*",
-        "vimeo/psalm": "^3.3"
+        "vimeo/psalm": "^3.3",
+        "ext-json": "*"
     },
     "config": {
         "preferred-install": {
