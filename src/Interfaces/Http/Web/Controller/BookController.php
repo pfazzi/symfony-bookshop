@@ -11,6 +11,6 @@ final class BookController
 {
     public function create(Request $request): Response
     {
-        return Response::create(); // TODO: to be implemented
+
     }
 }
