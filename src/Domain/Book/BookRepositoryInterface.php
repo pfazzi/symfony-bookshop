@@ -11,4 +11,9 @@ interface BookRepositoryInterface
     public function get(Isbn $isbn): Book;
 
     public function store(Book $book): void;
+
+    /**
+     * @return Book[]
+     */
+    public function getAll(): array;
 }

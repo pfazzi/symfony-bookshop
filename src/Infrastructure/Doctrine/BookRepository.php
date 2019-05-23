@@ -49,4 +49,11 @@ class BookRepository implements BookRepositoryInterface, BookCatalogInterface
 
         return true;
     }
+
+    public function getAll(): array
+    {
+        return $this->objectRepository->findAll();
+    }
+
+
 }

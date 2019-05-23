@@ -3,3 +3,7 @@ rest_controllers:
     type: annotation
     prefix: /api
     defaults: { _format: json }
+
+web_controllers:
+    resource: ../../src/Interfaces/Http/Web/Controller/*
+    type: annotation

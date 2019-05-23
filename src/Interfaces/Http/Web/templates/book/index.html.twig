@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title%} Books {% endblock %}
+
+{% block body %}
+    {% if books %}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Book Title</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {%  for book in books %}
+                <tr>
+                    <td>{{ book.title }}</td>
+                    <td>
+                        <a href="/book/{{ book.isbn }}" class="btn btn-dark">Show</a>
+                    </td>
+                    <td>
+                        <a href="/book/update/{{ book.isbn }}" class="btn btn-info">Update</a>
+                    </td>
+                    <td>
+                        <a href="/book/delete/{{ book.isbn }}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No Books found</p>
+    {% endif %}
+
+{% endblock %}
